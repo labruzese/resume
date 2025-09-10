@@ -1,0 +1,270 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+\usepackage[sfdefault]{FiraSans}
+\usepackage[sfdefault]{roboto}
+\usepackage[sfdefault]{noto-sans}
+\usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+% \addtolength{\oddsidemargin}{-0.5in}
+% \addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+\usepackage[margin=0.5in]{geometry}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    \begin{minipage}[t]{\dimexpr\linewidth-0.2in}
+      {#1 \vspace{-2pt}}
+    \end{minipage}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeEducationSubheading}[5]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} \textit{| #2} & \textbf{\small #3} \\
+      \textit{\small#4} & \textit{\small #5} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[4]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+      \small#3 & \emph{\footnotesize #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Skylar Abruzese} \\ \vspace{1pt}
+    \small \raisebox{-0.1\height}\faPhone\ 781-540-8114 ~
+    \href{mailto:labruzes@u.rochester.edu}{\raisebox{-0.2\height}\faEnvelope\ \underline{labruzes@u.rochester.edu}}  ~ 
+    \href{https://linkedin.com/in/skylar-abruzese/}{\raisebox{-0.2\height}\faLinkedin\ \underline{linkedin.com/in/skylar-abruzese/}}  ~
+    \href{https://github.com/labruzese}{\raisebox{-0.2\height}\faGithub\ \underline{github.com/labruzese}}
+    \vspace{-8pt}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeEducationSubheading
+      {University of Rochester}{Hajim School of Engineering \& Applied Sciences}{Expected May 2028}
+      {Bachelor of Science, Computer Science}{Rochester, New York}
+      \resumeItem{{\fontseries{sb}\selectfont GPA}: 3.84 ~ Dean's List: Fall 2024, Spring 2025}
+      \vspace{-6pt}
+      \resumeItem{{\fontseries{sb}\selectfont Relevant Coursework}: Collaborative Programming \& Software Design,  Programming Language Design \& Implementation, Design \& Analysis of Efficient Algorithms, Computer Organization (Systems), Data Structures \& Algorithms, Data Analysis I
+                  % \begin{itemize}[itemsep=-4pt]
+                  %     \item\small Collaborative Programming \& Software Design
+                  %     \item Data Structures \& Algorithms
+                  %     \item Programming Language Design \& Implementation
+                  %     \item Design \& Analysis of Efficient Algorithms
+                  %     \item Computer Organization (Systems)
+                  %     \item Data Analysis I
+                  %     % \item Multidimensional Calculus
+                  %     % \item Discrete Math
+                  % \end{itemize}
+                  }
+        \vspace{-6pt}
+\resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {STEM Instructor Intern at Babson College}{Summer 2025}
+      {Lavner Education}{Wellesley, MA}
+      \resumeItemListStart
+        \resumeItem{Collaborated with co-workers and administration to organize, and teach cutting-edge curricula each week}
+        \resumeItem{Prepared lessons and taught over 30 students, ages 8 to 14, on a variety of STEM topics, including computer science, coding, Scratch, Chess, and Minecraft Modding}
+        \vspace{2pt}
+        \resumeItem{Mediated and de-escalated conflicts through active listening, empathy, and alternative communication strategies to create a safe and inclusive environment}
+      \resumeItemListEnd
+      
+    \resumeSubheading
+      {Software Developer Intern}{Summer 2023, Summer 2024}
+      {Abacus Health Solutions}{Cranston, RI}
+      \resumeItemListStart
+        \resumeItem{Designed and trained custom AI model using Azure to recognize and process forms received from clients}
+        \resumeItem{Coded REST API in C\# to interface with AI forms processing service, for easy integration with company's current software. Resulted in 6X increase in employee productivity}
+        \vspace{2pt}
+        \resumeItem{Used Postman API client to automate testing for multiple APIs}
+        \vspace{-2pt}
+        \resumeItem{Built Windows application to pre-populate fields with AI extracted information, including input validation, file preview, asynchronous background processing and pre-fetch, and record keeping. \textbf{Result:} 3X increase in employee productivity, freeing 2 FTE for other assignments}
+        \vspace{1pt}
+    \resumeItemListEnd
+          
+    \resumeSubheading
+      {AP Computer Science Tutor}{September 2023 - May 2024}
+      {Self Employed}{Remote}
+      \resumeItemListStart
+        \resumeItem{Tutored student in AP Computer Science through hands-on project work, resulting in an A grade and a 5 on the AP exam}
+        \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-16pt}
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \vspace{-5pt}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+            % LINK: 
+          {\textbf{Dynamic Memory Allocator (Malloc Implementation)}} 
+          {May 2025}
+          {$\langle$\emph{C, Systems Programming, Memory Management, Data Structures}$\rangle$}
+          {\href{https://github.com/labruzese/malloc}{\raisebox{-0.0\height}\faGithub\ \underline{github.com/labruzese/malloc}}}
+          \resumeItemListStart
+            \resumeItem{Engineered high-performance malloc/free/realloc implementation using segregated free lists, boundary tag coalescing, and custom allocation policies. Achieved a 98+ performance index through optimized memory utilization and throughput and beat the stdlib implementation in certain workloads}
+          \resumeItemListEnd
+
+          \vspace{-4pt}
+    
+      \resumeProjectHeading
+            % LINK: 
+          {\textbf{Scrabble Game + AI}} 
+          {January 2025}
+          {$\langle$\emph{Kotlin, Ktor, WebSockets, Algorithms, MVC Design, Data Structures}$\rangle$}
+          {\href{https://github.com/FischerAbruzese/Scrabble}{\raisebox{-0.0\height}\faGithub\ \underline{github.com/FischerAbruzese/Scrabble}}}
+          \resumeItemListStart
+            \resumeItem{Architected complete Scrabble game engine using Kotlin with MVC design pattern}
+            \resumeItem{Developed intelligent AI opponent using recursive search algorithms with prefix tree optimization, implemented backtracking permutation search to evaluate all possible moves, while considering board positioning and blank tile strategies}
+          \resumeItemListEnd
+
+          \vspace{-4pt}
+          
+      \resumeProjectHeading
+            % LINK: 
+          {\textbf{Graph Data Structures \& Algorithm Visualization Platform}}
+          {Spring 2024}
+          {$\langle$\emph{Kotlin, JavaFX, Multithreading}$\rangle$}
+          {\href{https://github.com/FischerAbruzese/Graphs-Algorithms-Visualization}{\raisebox{-0.0\height}\faGithub\ \underline{github.com/FischerAbruzese/Graphs-Algorithms-Visualization}}}
+          \resumeItemListStart
+            \resumeItem{Developed comprehensive graph theory platform employing adjacency matrix data structures with advanced algorithms, including dijkstra's using fibonacci heaps, breadth-first search, depth-first search, and highly connected subgraphs clustering via karger's randomized min-cut algorithm}
+            \vspace{3pt}
+            \resumeItem{Built interactive JavaFX visualization system featuring real-time physics simulation with multithreaded computation, drag-and-drop vertex manipulation, and dynamic algorithm execution with visual path highlighting and cluster coloring}
+          \resumeItemListEnd
+          
+    \resumeSubHeadingListEnd
+\vspace{-10pt}
+
+%
+% %-----------LEADERSHIP-----------
+% \section{Leadership}
+%     \resumeSubHeadingListStart
+%       \resumeProjectHeading
+%           {\textbf{Ultimate Frisbee} $|$ \emph{Captain, Spirit Award}}{2020 - Present}
+%     \vspace{-22pt}
+%       \resumeProjectHeading
+%           {\textbf{Mock Trial} $|$ \emph{Captain, 2x Team Leadership Award}}{2020 - 2024}
+
+%     \resumeSubHeadingListEnd
+
+% %
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: C, Bash, Kotlin, Java, Python, C\#, Rust, Haskell, HTML/CSS, SQL} \\
+     \textbf{Developer Tools}{: Linux CLI, Git, Postman API, Azure AI Services, GitHub, Gradle, Rest APIs, Azure Storage } \\
+     \textbf{Technologies/Frameworks}{: GNU/Linux, ASP.NET, JavaFX, Ktor, Websocket / TCP, JSON}
+    }}
+ \end{itemize}
+
+% %
+%-----------OTHER-----------
+% \section{Athletics}
+%  \begin{itemize}[leftmargin=0.15in, label={}]
+%     \small{\item{
+%      \textbf{Ultimate Frisbee \& Disc Golf}{~ $|$ \emph{College \& Youth Club Nationals}} \\
+%     }}
+%  \end{itemize}
+ 
+\end{document}
