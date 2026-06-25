@@ -13,6 +13,7 @@
 \usepackage{tabularx}
 \usepackage{fontawesome5}
 \usepackage{multicol}
+\usepackage{xparse}
 \setlength{\multicolsep}{-3.0pt}
 \setlength{\columnsep}{-1pt}
 \input{glyphtounicode}
@@ -58,8 +59,7 @@
 % Ensure that generate pdf is machine readable/ATS parsable
 \pdfgentounicode=1
 
-%-------------------------
-% Custom commands
+% Commands
 \newcommand{\resumeItem}[1]{
   \item\small{
     \begin{minipage}[t]{\dimexpr\linewidth-0.2in}
@@ -97,11 +97,24 @@
     \end{tabular*}\vspace{-7pt}
 }
 
-\newcommand{\resumeProjectHeading}[4]{
+\newcommand{\projectGithubLink}[1]{
+    \ifx\relax#1\relax
+    \else
+        \href
+            {https://github.com/#1}
+            {
+                \raisebox{-0.0\height}\faGithub\ 
+                \underline{github.com/#1}
+            } 
+    \fi
+}
+
+% Github link is optional
+\NewDocumentCommand{\resumeProjectHeading}{m m m O{}}{
     \item
     \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & \textbf{\small #2}\\
-      \small#3 & \emph{\footnotesize #4} \\
+      \textbf{\small #1} & \textbf{\small #2}\\
+      $\langle$\emph{\small #3}$\rangle$ & \emph{\footnotesize \projectGithubLink{#4}} \\
     \end{tabular*}\vspace{-7pt}
 }
 
@@ -115,11 +128,29 @@
 \newcommand{\resumeItemListStart}{\begin{itemize}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
-%-------------------------------------------
-%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\resumeItemGPA}[2]{
+    \resumeItem{
+        {\fontseries{sb}\selectfont GPA: #1} ~ Deans List: #2
+    }
+}
+\newcommand{\resumeItemCoursework}[1]{
+    \resumeItem{
+        {\fontseries{sb}\selectfont Relevant Coursework}: #1
+    }
+}
 
+\newcommand{\resumeTechnicalSection}[3]{
+    \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+        \textbf{Languages}{: #1}\\
+        \textbf{Tools}{: #2}\\
+        \textbf{Frameworks}{: #3}\\
+    }}
+    \end{itemize}
+}
 
 \begin{document}
+\setlength{\footskip}{4.08003pt}.
 
 %----------HEADING----------
 \begin{center}
@@ -134,53 +165,94 @@
 
 %-----------EDUCATION-----------
 \section{Education}
-  \resumeSubHeadingListStart
-    \resumeEducationSubheading
-      {University of Rochester}{Hajim School of Engineering \& Applied Sciences}{Expected May 2028}
-      {Bachelor of Science | Computer Science: Computer Systems}{Rochester, New York}
-      \resumeItem{{\fontseries{sb}\selectfont GPA}: 3.85 ~ Dean's List: Fall 2024, Spring 2025, Fall 2025}
-      \vspace{-6pt}
-      \resumeItem{{\fontseries{sb}\selectfont Relevant Coursework}: Compilers, Computer Organization (Systems), Data Structures \& Algorithms, Machine-Checked Proofs, Algorithms, Data Analysis, Artificial Intelligence, Collaborative Programming \& Software Design, Parallel \& Distributed Systems}
+    \resumeSubHeadingListStart
+        \resumeEducationSubheading
+            {University of Rochester}
+            {Hajim School of Engineering \& Applied Sciences}
+            {Expected May 2028}
+            {Bachelor of Science | Computer Science: Computer Systems}
+            {Rochester, New York}
+        \vspace{-2pt}
+        \resumeItemGPA
+            {3.89}
+            {
+                Fall 2024, 
+                Spring 2025, 
+                Fall 2025, 
+                Spring 2026
+            }
+        \vspace{-6pt}
+        \resumeItemCoursework{
+            Compilers, 
+            Computer Organization, 
+            Architecture and Security, 
+            Operating Systems,
+            Machine-Checked Proofs, 
+            Algorithms, 
+            Data Analysis, 
+            Artificial Intelligence, 
+            Collaborative Programming \& Software Design, 
+            Parallel \& Distributed Systems
+        }
         \vspace{-6pt}
 \resumeSubHeadingListEnd
 
 %-----------EXPERIENCE-----------
 \section{Experience}
-  \resumeSubHeadingListStart
-
-      \resumeSubheading
-      {Teaching Assistant - Programming Language Design \& Implementation (Compilers)}{January 2026 }
-      {University of Rochester}{Rochester, NY}
-      \resumeItemListStart
-        \resumeItem{Served as a TA for 80+ student course: \textit{CSC 254/454: Programming Language Design \& Implementation}, assisting in instruction and grading.}
-        \resumeItem{Held weekly one-on-one office hours and mentored group projects, helping students with debugging, code structure, principles of compilers, and compiler tools such as ANTLR.}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {STEM Instructor Intern at Babson College}{Summer 2025}
-      {Lavner Education}{Wellesley, MA}
-      \resumeItemListStart
-        \resumeItem{Collaborated with co-workers and administration to organize, and teach cutting-edge curricula each week}
-        \resumeItem{Prepared lessons and taught over 30 students, ages 8 to 14, on a variety of STEM topics, including computer science, coding, Scratch, Chess, and Minecraft Modding}
-        \vspace{2pt}
-        \resumeItem{Mediated and de-escalated conflicts through active listening, empathy, and alternative communication strategies to create a safe and inclusive environment}
-      \resumeItemListEnd
-      
-    \resumeSubheading
-      {Software Developer Intern}{Summer 2023, Summer 2024}
-      {Abacus Health Solutions}{Cranston, RI}
-      \resumeItemListStart
-        \resumeItem{Designed and trained custom AI model using Azure to recognize and process forms received from clients.}
-        \resumeItem{Coded REST API in C\# to interface with AI forms processing service, for easy integration with company's current software. \textbf{Result:} increase in employee productivity, freeing 2 FTE for other assignments.}
-        \vspace{2pt}
-        \resumeItem{Used Postman API client to automate testing for multiple.}
-        \vspace{-2pt}
-        \resumeItem{Built Windows application to pre-populate fields with AI extracted information, including input validation, file preview, asynchronous background processing and pre-fetch, and record keeping. }
-        \vspace{1pt}
-    \resumeItemListEnd
+    \resumeSubHeadingListStart
+        \resumeSubheading
+            {Teaching Assistant - Programming Language Design \& Implementation (Compilers)}{January 2026 - Present}
+            {University of Rochester}
+            {Rochester, NY}
+        \resumeItemListStart
+            \resumeItem{
+                Served as a TA for 80+ student course: \textit{CSC 254/454: Programming Language Design \& Implementation}, assisting in instruction and grading.
+            }
+            \resumeItem{
+                Held weekly one-on-one office hours, helping students with debugging, code structure, principles of compilers.
+            }
+            \resumeItem{
+                Developed custom tools such as a lexer \& parser generator in Rust for auto-grading.
+            }
+        \resumeItemListEnd
+        
+        \resumeSubheading
+            {STEM Instructor Intern at Babson College}
+            {Summer 2025}
+            {Lavner Education}
+            {Wellesley, MA}
+        \resumeItemListStart
+            \resumeItem{
+                Collaborated with co-workers and administration to organize, and teach cutting-edge curricula each week
+            }
+            \resumeItem{
+                Prepared lessons and taught over 30 students, ages 8 to 14, on a variety of STEM topics, including computer science, coding, Scratch, Chess, and Minecraft Modding
+            }
+            \resumeItem{
+                Mediated and de-escalated conflicts through active listening, empathy, and alternative communication strategies to create a safe and inclusive environment
+            }
+        \resumeItemListEnd
           
-
-  \resumeSubHeadingListEnd
+        \resumeSubheading
+            {Software Developer Intern}
+            {Summer 2023, Summer 2024}
+            {Abacus Health Solutions}
+            {Cranston, RI}
+        \resumeItemListStart
+            \resumeItem{
+                Designed and trained custom AI model using Azure to recognize and process forms received from clients.
+            }
+            \resumeItem{
+                Coded REST API in C\# to interface with AI forms processing service, for easy integration with company's current software. \textbf{Result:} increase in employee productivity, freeing 2 FTE for other assignments.
+            }
+            \resumeItem{
+                Used Postman API client to automate testing for multiple.
+            }
+            \resumeItem{
+                Built Windows application to pre-populate fields with AI extracted information, including input validation, file preview, asynchronous background processing and pre-fetch, and record keeping.
+            }
+        \resumeItemListEnd
+    \resumeSubHeadingListEnd
 \vspace{-16pt}
 
 %-----------PROJECTS-----------
@@ -188,55 +260,84 @@
     \vspace{-5pt}
     \resumeSubHeadingListStart
         \resumeProjectHeading
-            % LINK: 
-          {\textbf{Constrictr - Distributed Version Control System}} 
-          {December 2025}
-          {$\langle$\emph{Rust, Software Design}$\rangle$}
-          {}% \href{https://github.com/labruzese/constrictr}{\raisebox{-0.0\height}\faGithub\ \underline{github.com/labruzese/constrictr}} % no github link for this one
-          \resumeItemListStart
-            \resumeItem{Designed and implemented a Git-like distributed version control system in Rust using modular system architecture to separate storage, version control logic, and CLI with performance aware features such as in-memory caching and lazy loading}
-            \resumeItem{Implemented complete test suite including 70+ acceptance tests and framework validating over 16 subcommand operations against both constrictr and Git.}
+            {Constrictr - Distributed Version Control System}
+            {December 2025}
+            {Rust, Software Design}
+            % {labruzese/constrictr}
+        \resumeItemListStart
+            \resumeItem{
+                Designed and implemented a Git-like distributed version control system in Rust using modular system architecture to separate storage, version control logic, and CLI with performance aware features such as in-memory caching and lazy loading.
+            }
+            \vspace{-1em} % This will likely need to be removed with any changes
+            \resumeItem{
+                Implemented complete test suite including 70+ acceptance tests and framework validating over 16 subcommand operations against both constrictr and Git.
+            }
         \resumeItemListEnd
-        
         \vspace{-4pt}
         
         \resumeProjectHeading
-            % LINK: 
-          {\textbf{ECL Compiler with LLVM Backend}} 
-          {November 2025}
-          {$\langle$\emph{Ocaml, LLVM, Dune}$\rangle$}
-          {} % no github link for this one
-          \resumeItemListStart
-            \resumeItem{Forked a parser written in Ocaml to add semantic analysis, constant folding, interpretation, and compilation with optimizations using Ocaml LLVM bindings}
+            {ECL Compiler with LLVM Backend}
+            {November 2025}
+            {Ocaml, LLVM, Dune}
+            % {labruzese/ecl_compiler}
+        \resumeItemListStart
+            \resumeItem{
+                Forked a parser written in Ocaml to add semantic analysis, constant folding, interpretation, and compilation with optimizations using Ocaml LLVM bindings
+            }
         \resumeItemListEnd
-        
         \vspace{-4pt}
     
-      \resumeProjectHeading
-            % LINK: 
-          {\textbf{Dynamic Memory Allocator (Malloc Implementation)}} 
-          {May 2025}
-          {$\langle$\emph{C, Systems Programming, Memory Management, Data Structures}$\rangle$}
-          {} % \href{https://github.com/labruzese/malloc}{\raisebox{-0.0\height}\faGithub\ \underline{github.com/labruzese/malloc}}
-          \resumeItemListStart
-            \resumeItem{Engineered high-performance malloc/free/realloc implementation using segregated free lists, boundary tag coalescing, and custom allocation policies.}
-            \resumeItem{Achieved a 98+ performance index through optimized memory utilization and throughput and beat the stdlib implementation in certain workloads}
-          \resumeItemListEnd
-
-          \vspace{-4pt}
-          
-          
+        \resumeProjectHeading
+            {Dynamic Memory Allocator (Malloc Implementation)} 
+            {May 2025}
+            {C, Systems Programming, Memory Management, Data Structures}
+            % {labruzese/malloc}
+        \resumeItemListStart
+            \resumeItem{
+                Engineered high-performance malloc/free/realloc implementation using segregated free lists, boundary tag coalescing, and custom allocation policies.
+            }
+            \resumeItem{
+                Achieved a 98+ performance index through optimized memory utilization and throughput and beat the stdlib implementation in certain workloads
+            }
+        \resumeItemListEnd
+        \vspace{-4pt}
     \resumeSubHeadingListEnd
-\vspace{-10pt}
+    \vspace{-10pt}
 
 %-----------TECHNICAL SKILLS-----------
 \section{Technical Skills}
- \begin{itemize}[leftmargin=0.15in, label={}]
-    \small{\item{
-     \textbf{Languages}{: Rust, C, C++, Kotlin, Ocaml, C\#, Java, Python, Bash, Haskell, HTML/CSS, SQL} \\
-     \textbf{Developer Tools}{: Git, Linux CLI, GitHub, Docker, Gradle, Dune, Nix, Postman API, Azure AI Services, Rest APIs, Azure Storage } \\
-     \textbf{Technologies/Frameworks}{: GNU/Linux, LLVM, ASP.NET, JavaFX, Ktor, Websocket / TCP, JSON}
-    }}
- \end{itemize}
-
+    \resumeTechnicalSection
+        { % Languages
+            Rust, 
+            Kotlin, 
+            Ocaml, 
+            Java,
+            C, 
+            C\#, 
+            Python, 
+            C++, 
+            Bash
+        }
+        { % Tools
+            Git, 
+            GNU Utils, 
+            GitHub, 
+            Docker, 
+            Cargo,
+            Gradle,
+            Dune, 
+            Postman API, 
+            Azure AI Services, 
+            Rest APIs, 
+            Azure Storage
+        }
+        { % Frameworks 
+            GNU/Linux, 
+            LLVM, 
+            ASP.NET, 
+            JavaFX, 
+            Ktor, 
+            Websocket / TCP, 
+            JSON
+        }
 \end{document}
