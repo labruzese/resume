@@ -117,6 +117,14 @@
       $\langle$\emph{\small #3}$\rangle$ & \emph{\footnotesize \projectGithubLink{#4}} \\
     \end{tabular*}\vspace{-7pt}
 }
+\NewDocumentCommand{\resumeProjectHeadingOther}{m m m}{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{\small #1: }\small #2 & \textbf{\small #3}
+    \end{tabular*}\vspace{-7pt}
+}
+
+
 
 \newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
 
@@ -126,16 +134,16 @@
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-7pt}}
 
 \newcommand{\resumeItemGPA}[2]{
     \resumeItem{
-        {\fontseries{sb}\selectfont GPA: #1} ~ Deans List: #2
+        {\fontseries{sb}\selectfont GPA: #1} ~ Dean's List: #2
     }
 }
 \newcommand{\resumeItemCoursework}[1]{
     \resumeItem{
-        {\fontseries{sb}\selectfont Relevant Coursework}: #1
+        {\fontseries{sb}\selectfont Coursework}: #1
     }
 }
 
@@ -143,8 +151,8 @@
     \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
         \textbf{Languages}{: #1}\\
-        \textbf{Tools}{: #2}\\
-        \textbf{Frameworks}{: #3}\\
+        \textbf{Systems \& Tools}{: #2}\\
+        \textbf{Frameworks \& Libraries}{: #3}\\
     }}
     \end{itemize}
 }
@@ -171,7 +179,7 @@
             {Hajim School of Engineering \& Applied Sciences}
             {Expected May 2028}
             {Bachelor of Science | Computer Science: Computer Systems}
-            {Rochester, New York}
+            {Rochester, NY}
         \vspace{-2pt}
         \resumeItemGPA
             {3.89}
@@ -183,124 +191,161 @@
             }
         \vspace{-6pt}
         \resumeItemCoursework{
+            Parallel \& Distributed Systems,
             Compilers, 
             Computer Organization, 
-            Architecture and Security, 
             Operating Systems,
             Machine-Checked Proofs, 
             Algorithms, 
-            Data Analysis, 
+            Computer Architecture and Security,
             Artificial Intelligence, 
-            Collaborative Programming \& Software Design, 
-            Parallel \& Distributed Systems
+            Data Structures \& Algorithms,
+            Software Design
         }
         \vspace{-6pt}
 \resumeSubHeadingListEnd
-
+\vspace{-1em}
 %-----------EXPERIENCE-----------
 \section{Experience}
     \resumeSubHeadingListStart
-        \resumeSubheading
-            {Teaching Assistant - Programming Language Design \& Implementation (Compilers)}{January 2026 - Present}
+            \resumeSubheading
+            {InnovateCS Research Grant - LRU Cache Formal Verification}{May 2026 - Present}
             {University of Rochester}
             {Rochester, NY}
-        \resumeItemListStart
-            \resumeItem{
-                Served as a TA for 80+ student course: \textit{CSC 254/454: Programming Language Design \& Implementation}, assisting in instruction and grading.
-            }
-            \resumeItem{
-                Held weekly one-on-one office hours, helping students with debugging, code structure, principles of compilers.
-            }
-            \resumeItem{
-                Developed custom tools such as a lexer \& parser generator in Rust for auto-grading.
-            }
-        \resumeItemListEnd
+            \resumeItemListStart
+                \resumeItem{
+                    Awarded the InnovateCS grant to work under Professor Chen Ding on machine-checked verification of an unsafe Rust codebase using \textit{RefinedRust}, a Coq/Iris-based verification framework.
+                }
+                \resumeItem{
+                    Authored implementation, functional-correctness specifications, and proofs for the core get and put operations of an LRU cache library.
+                }
+            \resumeItemListEnd 
+        
+        \resumeSubheading
+            {Teaching Assistant - Algorithms, Compilers}{January 2026 - Present}
+            {University of Rochester}
+            {Rochester, NY}
+            \resumeItemListStart
+                \resumeItem{
+                    Working as a TA for 50+ student course: \textit{Design and Analysis of Efficient Algorithms}.
+                }
+                \resumeItem{
+                    Worked as a TA for 80+ student course: \textit{Programming Language Design \& Implementation}.
+                }
+                \resumeItem{Assisted in instruction, grading and held weekly office hours.}
+                \resumeItem{
+                    Developed custom tools for auto-grading student parsers and code generation.
+                }
+            \resumeItemListEnd
         
         \resumeSubheading
             {STEM Instructor Intern at Babson College}
-            {Summer 2025}
+            {June 2025 - August 2025}
             {Lavner Education}
             {Wellesley, MA}
-        \resumeItemListStart
-            \resumeItem{
-                Collaborated with co-workers and administration to organize, and teach cutting-edge curricula each week
-            }
-            \resumeItem{
-                Prepared lessons and taught over 30 students, ages 8 to 14, on a variety of STEM topics, including computer science, coding, Scratch, Chess, and Minecraft Modding
-            }
-            \resumeItem{
-                Mediated and de-escalated conflicts through active listening, empathy, and alternative communication strategies to create a safe and inclusive environment
-            }
-        \resumeItemListEnd
-          
+            \resumeItemListStart
+                \resumeItem{
+                    Prepared lessons and taught over 30 students, ages 8 to 14, on a variety of STEM topics, including computer science, coding, Scratch, Chess, and Minecraft Modding.
+                }
+            \resumeItemListEnd
+        
         \resumeSubheading
             {Software Developer Intern}
-            {Summer 2023, Summer 2024}
+            {June - August, 2023 \& 2024}
             {Abacus Health Solutions}
             {Cranston, RI}
-        \resumeItemListStart
-            \resumeItem{
-                Designed and trained custom AI model using Azure to recognize and process forms received from clients.
-            }
-            \resumeItem{
-                Coded REST API in C\# to interface with AI forms processing service, for easy integration with company's current software. \textbf{Result:} increase in employee productivity, freeing 2 FTE for other assignments.
-            }
-            \resumeItem{
-                Used Postman API client to automate testing for multiple.
-            }
-            \resumeItem{
-                Built Windows application to pre-populate fields with AI extracted information, including input validation, file preview, asynchronous background processing and pre-fetch, and record keeping.
-            }
-        \resumeItemListEnd
+            \resumeItemListStart
+                \resumeItem{
+                    Designed and trained custom AI model using Azure to recognize and process forms received from clients.
+                }
+                \resumeItem{
+                    Set up AI assisted form processing automation pipeline for integration via REST API in C\#. \textbf{Result:} increase in employee productivity, freeing 2 FTE for other assignments.
+                }
+            \resumeItemListEnd
     \resumeSubHeadingListEnd
-\vspace{-16pt}
+\vspace{-16.5pt}
 
 %-----------PROJECTS-----------
 \section{Projects}
     \vspace{-5pt}
     \resumeSubHeadingListStart
         \resumeProjectHeading
-            {Constrictr - Distributed Version Control System}
-            {December 2025}
-            {Rust, Software Design}
-            % {labruzese/constrictr}
-        \resumeItemListStart
-            \resumeItem{
-                Designed and implemented a Git-like distributed version control system in Rust using modular system architecture to separate storage, version control logic, and CLI with performance aware features such as in-memory caching and lazy loading.
-            }
-            \vspace{-1em} % This will likely need to be removed with any changes
-            \resumeItem{
-                Implemented complete test suite including 70+ acceptance tests and framework validating over 16 subcommand operations against both constrictr and Git.
-            }
-        \resumeItemListEnd
-        \vspace{-4pt}
-        
-        \resumeProjectHeading
-            {ECL Compiler with LLVM Backend}
-            {November 2025}
-            {Ocaml, LLVM, Dune}
-            % {labruzese/ecl_compiler}
-        \resumeItemListStart
-            \resumeItem{
-                Forked a parser written in Ocaml to add semantic analysis, constant folding, interpretation, and compilation with optimizations using Ocaml LLVM bindings
-            }
-        \resumeItemListEnd
-        \vspace{-4pt}
-    
-        \resumeProjectHeading
-            {Dynamic Memory Allocator (Malloc Implementation)} 
+            {Software Transactional Memory Library}
+            {May 2026}
+            {Zig, Parallel Systems, Transactional Memory}
+            \resumeItemListStart
+                \resumeItem{
+                    Implemented NOrec STM library for Zig using a single cache-line-aligned sequence lock instead of per-object ownership records, a redo log for buffered writes, and value-based read-set validation.
+                }
+                \resumeItem{
+                    Guarantees opacity, livelock freedom, and privatization safety, with selectable publication semantics; read transactions are never blocking.
+                }
+                \resumeItem{
+                    Implemented compile time validation of transaction bodies, flexible retry semantics \& arbitrary variable types in transactions for the library API.
+                }
+            \resumeItemListEnd
+        \vspace{-5pt}\resumeProjectHeading
+            {Delta-Stepping Implementation}
+            {April 2026}
+            {C++, Parallel Systems, MPI}
+            \resumeItemListStart 
+                \resumeItem{
+                    Built a distributed delta-stepping single source shortest paths algorithm in C++20 using MPI achieving up to a \textbf{2.1x speedup} over sequential Dijkstra on multi-core \& multi-socket hardware.
+                }
+                \resumeItem{
+                    Mathematically derived optimal delta given the graph generation input parameters.
+                }
+            \resumeItemListEnd
+        \vspace{-15pt}\resumeProjectHeading
+            {Dynamic Memory Allocator}
             {May 2025}
-            {C, Systems Programming, Memory Management, Data Structures}
-            % {labruzese/malloc}
-        \resumeItemListStart
-            \resumeItem{
-                Engineered high-performance malloc/free/realloc implementation using segregated free lists, boundary tag coalescing, and custom allocation policies.
-            }
-            \resumeItem{
-                Achieved a 98+ performance index through optimized memory utilization and throughput and beat the stdlib implementation in certain workloads
-            }
-        \resumeItemListEnd
-        \vspace{-4pt}
+            {C, Runtime Systems}
+            \resumeItemListStart 
+                \resumeItem{
+                    Implemented a dynamic memory allocator in C from scratch using segregated explicit free lists, boundary-tag coalescing, and a configurable best-fit placement policy, tuned to outperform libc for the target workloads.
+                }
+            \resumeItemListEnd
+        % \resumeProjectHeading
+        %     {Eta Compiler}
+        %     {December 2025 - Present}
+        %     {Rust, Compilers, Software Design}
+        %     % {labruzese/constrictr}
+        %     \resumeItemListStart
+        %         \resumeItem{
+        %             Building a compiler from scratch in Rust for Eta, a statically typed imperative language from Cornell's CS 4120, using architecture inspired by rustc.
+        %         }
+        %         \resumeItem{Implemented multi-error recovery and a diagnostic drop-bomb making it impossible to encounter errors without reporting a diagnostic.}
+        %         \resumeItem{
+        %             Work in progress. Lexer, parser, and HIR lowering are completed with over 200 passing tests for the lexer and the parser.
+        %         }
+        %     \resumeItemListEnd
+        % \resumeProjectHeading
+        %     {Assembrawly}
+        %     {September 2025}
+        %     {Kotlin, Websockets}
+        %     \resumeItemListStart
+        %         \resumeItem{
+        %             Written in Kotlin; Full-stack real-time multiplayer; Ktor websockets; sandboxed Python execution 
+        %         }
+        %     \resumeItemListEnd 
+        % \resumeProjectHeading
+        %     {ECL Compiler}
+        %     {November 2025}
+        %     {Ocaml, Compilers, LLVM}
+        %     \resumeItemListStart 
+        %         \resumeItem{
+        %             Written in Ocaml; semantic analysis, constant folding, interpretation, and LLVM backend
+        %         }
+        %     \resumeItemListEnd 
+        % \resumeProjectHeading
+        %     {Malloc Implementation}
+        %     {May 2025}
+        %     {C, Runtime Systems, Profiling}
+        %     \resumeItemListStart
+        %         \resumeItem{
+        %             Written in C; Segregated free lists, coalescing, boundary tags, adaptive allocation
+        %         }
+        %     \resumeItemListEnd
     \resumeSubHeadingListEnd
     \vspace{-10pt}
 
@@ -319,25 +364,21 @@
             Bash
         }
         { % Tools
-            Git, 
-            GNU Utils, 
-            GitHub, 
-            Docker, 
+            GNU/Linux, 
+            Git,
+            Perf,
+            GitHub,
+            Docker,
             Cargo,
-            Gradle,
-            Dune, 
-            Postman API, 
-            Azure AI Services, 
-            Rest APIs, 
-            Azure Storage
+            Postman,
+            Azure Storage \& AI,
+            REST,
+            Websocket / TCP
         }
         { % Frameworks 
-            GNU/Linux, 
             LLVM, 
             ASP.NET, 
             JavaFX, 
-            Ktor, 
-            Websocket / TCP, 
-            JSON
+            Ktor
         }
 \end{document}
